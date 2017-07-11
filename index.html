@@ -42,9 +42,9 @@
             color: black;
             }
             .playing {
-                transform: scale(1.1);
-                border-color: #ffc600;
-                box-shadow: 0 0 1rem #ffc600;
+                 transform: scale(1.1);
+                border-color: blue;
+                box-shadow: 0 0 1rem  red;
                 }
             .key {
                 border: 4px solid black;
@@ -54,7 +54,7 @@
                 width: 100px;
                 text-align: center;
                 color: white;
-                transition: all .07s ease;
+                transition: all  100 ease;
                 text-shadow: 0 0 .5rem black;
                 /*background: rgba(0,0,0,0.4);*/
                 
@@ -102,38 +102,125 @@
         <span class="sounds">tink</span>
         </div>
          <div  data-key="65" class="key">
-        <kbd></kbd>
+        <kbd>G</kbd>
         <span class="sounds">Tom</span>
         </div>
          <div  data-key="65" class="key">
-        <kbd></kbd>
+        <kbd>D</kbd>
         <span class="sounds">Cymbal</span>
         </div>
    </div>     
-        <li class="Sound1">
-        <audio  data-key="65" src="sounds/Bell.mp3"></audio></li>
-        <li  class="SSound2"><audio  data-key="87" src="sounds/clap.mp3"></audio></li>
+   
+        
+        <audio  data-key="81" src="sounds/Bell.mp3"></audio>
+        <audio  data-key="87"  class="key-87" src="sounds/clap.mp3"></audio>
         <audio  data-key="69" src="sounds/Clave.mp3"></audio>
         <audio  data-key="82" src="sounds/crash.mp3"></audio>
         <audio  data-key="84" src="sounds/Cymbal.mp3"></audio>
         <audio  data-key="89" src="sounds/hihat.mp3"></audio>
         <audio  data-key="74" src="sounds/Kick.mp3"></audio>
-        <!--<audio keyCode="75" src="sounds/ride.mp3"></audio>-->
         <audio  data-key="76" src="sounds/rim.mp3"></audio>
-        <audio  data-key="65" src="sounds/snare.mp3"></audio>
+        <audio  data-key="65" src="sounds/snare.mp3"></audio>   
+     
+
      
                    
 <script src="jquery.js"></script>   
 <script>
-    $('body').on('keypress', function(event) {
+    // $('body').on('keypress', function(event) {
         
-           var audio = document.querySelector('audio[data-key]');
-           console.log(audio);
-           audio.play();
+    //        var audio = document.querySelector('audio[data-key]');
+        
+    //                console.log(audio);
+    // //        audio.play();
+    //      $('.keys').on('click' ,function() {
+    //          var  audio = document.querySelectorAll('audio [data-key');
+    //       var  key = document.querySelectorAll('.key[data-key');
+    //     //   console.log(key);
+    //     //   console.log(audio);
+    //         if(!audio) return
+    //       audio.play();
+    //       audio.currentTime=0;  //this line is rewiding the time means ye dubara audioka current itme =0 kar deti hain
+    //       $(key).addClass('playing'); //idhar humne jquery use kara hain key variable ko select karne ke liyeor use kaha ki playng class ko add kkar do
+    //      setTimeout(function(event) {
+    //     //   var  audio = document.querySelectorAll('audio ata-key');
+    //     //   var  key = document.querySelectorAll('.key data-key');
+    //     //   console.log(key);
+    //     //   console.log(audio);
+    //         // if(!audio) return
+    //       audio.play();
+    //     //   audio.currentTime=0;  //this line is rewiding the time means ye dubara audioka current itme =0 kar deti hain
+    //       $(key).removeClass('playing')
+    //      }, 100);  
+    //     });
+        
 
-          
+        $('body').on('keypress', function(event){ //yaha hum window.addEventListener ka tarikha bhi use kar sakte the lekin ye wala easy hain 
+          var  audio1 = document.querySelector('audio[data-key="81"]');
+          var  key = document.querySelector('.key[data-key="81"');
+          var  audio2 = document.querySelector('audio[data-key="87"]');
+            var  key = document.querySelector('.key[data-key="87"');
+        //   console.log(key);
+        //   console.log(audio);
+            if(!audio1) return
+          audio1.play();
+          audio2.play();
+          audio1.currentTime=0;  //this line is rewiding the time means ye dubara audioka current itme =0 kar deti hain
+          $(key).addClass('playing'); //idhar humne jquery use kara hain key variable ko select karne ke liyeor use kaha ki playng class ko add kkar do
+         setTimeout(function(event) {
+          var  audio1 = document.querySelector('audio[data-key="81"');
+          var  audio2 = document.querySelector('audio[data-key="87"]');
+          var  key1 = document.querySelector('.key[data-key="81"');
+           var  key2 = document.querySelector('.key[data-key="87"');
+        //   console.log(key);
+        //   console.log(audio);
+            // if(!audio) return
+          audio1.play();
+          audio2.play();
+        //   audio.currentTime=0;  //this line is rewiding the time means ye dubara audioka current itme =0 kar deti hain
+          $(key1).removeClass('playing')
+          $(key2).removeClass('playing')
+         }, 100);  
+  });
 
-   });
+    
+
+        //    if(!audio)
+        //    return
+        //   var sounds=[{
+        //        "sound" :"Bell.mp3",
+        //         "data-key":""},
+        //         {
+        //         "sounds" : "clap.mp3",q
+        //         "data-key": "81"
+        //         },
+        //         {
+        //         "sound3":"Clave.mp3",
+        //          "data-key": ""   
+        //         },
+        //         { "sounds": "crash.mp3",
+        //             "data-key": ""
+        //         },
+        //         {
+        //         "sounds":"Cymbal.mp3",
+        //         "data-key": ""   
+        //         },
+        //         {
+        //         "sounds":"hihat.mp3",
+        //         "data-key": ""
+        //         },
+        //         {
+        //         "sounds":"Kick.mp3",
+        //         "data-key":""
+        //         },
+        //         {
+        //         "sounds":"rim.mp3",
+        //         "data-key":""
+        //         },
+        //         {
+        //         "sounds":"snare.mp3",
+        //         "data-key":""}]
+
 
    </script>
 <!--<script>
