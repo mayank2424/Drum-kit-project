@@ -189,50 +189,29 @@
 
         //    if(!audio)
         //    return
-        //   var sounds=[{
-        //        "sound" :"Bell.mp3",
-        //         "data-key":""},
-        //         {
-        //         "sounds" : "clap.mp3",q
-        //         "data-key": "81"
-        //         },
-        //         {
-        //         "sound3":"Clave.mp3",
-        //          "data-key": ""   
-        //         },
-        //         { "sounds": "crash.mp3",
-        //             "data-key": ""
-        //         },
-        //         {
-        //         "sounds":"Cymbal.mp3",
-        //         "data-key": ""   
-        //         },
-        //         {
-        //         "sounds":"hihat.mp3",
-        //         "data-key": ""
-        //         },
-        //         {
-        //         "sounds":"Kick.mp3",
-        //         "data-key":""
-        //         },
-        //         {
-        //         "sounds":"rim.mp3",
-        //         "data-key":""
-        //         },
-        //         {
-        //         "sounds":"snare.mp3",
-        //         "data-key":""}]
-// function removeTransition(e) {
-//     if (e.propertyName !== 'transform') return;
-//     e.target.classList.remove('playing');
-//   }
+                              //"YEH HUMARA BASIC ETHOD HAIN OR YEH MEYHOD THODA LENGTHY BHI HAIN"
+                                                                    // $('body').on('keydown', function(event) {
+                                                                    //     if(event.keyCode==81) {
+                                                                    //     var audio= document.querySelector('audio')
+                                                                    //     var key= document.querySelector('.key');
+                                                                    //     audio.play();
+                                                                    //     $(key).addClass('playing');
+                                                                    //     audio.currentTime=0;
+                                                                        
+                                                                    // setTimeout(function(event) {
+                                                                    //     var key= document.querySelector('.key');
+                                                                    //     $(key).removeClass('playing');
+
+                                                                    //     } , 100);
+                                                                    //     }
+                                                                    // });
   $('body').on('keydown', function(event){
-    var  audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);
+    var  audio = document.querySelector(`audio[data-key="${event.keyCode}"]`);//yaha  humne event.keycode function use kar liya yeh  keypress event pe depend karta hain 
     var   key = document.querySelector(`.key[data-key="${event.keyCode}"]`);
     if (!audio) return;
     $(key).addClass('playing');
-    audio.currentTime = 0;
-    audio.play();
+    audio.currentTime = 0; //yaha humne audio ko rewind kar diya 
+    audio.play();  
 
          setTimeout( function() {
          
@@ -247,26 +226,7 @@
          }, 100);  
   });
 
-  $('.key').on('click', function(event) {
-  var  audio = document.querySelector('audio[data-key]');
-    var   key = document.querySelector('.key[data-key]');
-    if (!audio) return;
-    $(key).addClass('playing');
-    audio.currentTime = 0;
-    audio.play();
-
-         setTimeout( function() {
-         
-    var  key = document.querySelector('.key[data-key]');
-        //    var  key2 = document.querySelector('.key[data-key="87"');
-        //   console.log(key);
-        //   console.log(audio);
-         
-        //   audio.currentTime=0;  //this line is rewiding the time means ye dubara audioka current itme =0 kar deti hain
-          $(key).removeClass('playing')
-         
-         }, 100);  
-  });
+ 
    
 //   const keys = Array.from(document.querySelectorAll('.key'));
 //   keys.forEach(key => key.addEventListener('transitionend', removeTransition));
