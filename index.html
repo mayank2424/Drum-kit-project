@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<title>Tech-Drum</title>
+	<link href="style.css" rel="stylesheet">
+	<link rel="stylesheet"
+  href="https://cdnjs.cloudflare.com/ajax/libs/animate.css/3.5.2/animate.min.css">
+</head>
+<body>
+	  <div class="heading animated fadeIn">
+		    <h1>Tech-Drum</h1>
+		    <h2 class="animated shake">Press Shown Keys</h2>
+	  </div>
+
+	<div class="keys animated lightSpeedIn">
+		
+	    <div data-key="68" class="key">
+	      <kbd>D</kbd>
+	    </div>
+	    <div data-key="69" class="key">
+	      <kbd>E</kbd>
+        </div>
+	    <div data-key="86" class="key">
+	      <kbd>V</kbd>
+	    </div>
+	    <div data-key="77" class="key name">
+	      <kbd>M</kbd>
+	    </div>
+	    <div data-key="65" class="key name">
+	      <kbd>A</kbd>
+	   </div>
+	    <div data-key="89" class="key name">
+	      <kbd>Y</kbd>
+        </div>
+	    <div data-key="50" class="key name">
+	      <kbd>@</kbd>
+        </div>
+	    <div data-key="78" class="key name">
+	      <kbd>N</kbd>
+	    </div>
+	    <div data-key="75" class="key name">
+	      <kbd>K</kbd>
+	    </div>
+     </div>
+
+   
+
+<!-- Audio files loaded -->
+  <audio data-key="68" src="sounds/clap.wav"></audio>
+  <audio data-key="69" src="sounds/hihat.wav"></audio>
+  <audio data-key="86" src="sounds/kick.wav"></audio>
+  <audio data-key="77" src="sounds/openhat.wav"></audio>
+  <audio data-key="50" src="sounds/snare.wav"></audio>
+  <audio data-key="89" src="sounds/ride.wav"></audio>
+  <audio data-key="65" src="sounds/boom.wav""></audio>
+  <audio data-key="78" src="sounds/tom.wav"></audio>
+  <audio data-key="75" src="sounds/tink.wav"></audio>
+
+<!-- Hahaha Main Working Of This technical drum -->
+<script>
+
+function letsPlay(e){
+	// Here I am using ES6 Template Syntax for selecting different tags
+   const audio=document.querySelector(`audio[data-key="${e.keyCode}"]`); 
+   const key=document.querySelector(`.key[data-key="${e.keyCode}"]`);
+   if(!audio) return;
+      audio.currentTime=0;   //Rewiding it to start(initial)
+      audio.play(); 
+      key.classList.add('playing');
+  }
+   function removeTransition(e){
+     if(e.propertyName!=='transform') return
+     this.classList.remove('playing');
+  }
+   const keys=document.querySelectorAll('.key');
+   //here transtionend is also an event like click , mouseover events etc.
+   keys.forEach(key=>key.addEventListener('transitionend',removeTransition));
+   window.addEventListener('keydown',letsPlay);
+</script>
+
+</body>
+</html>
